@@ -12,7 +12,7 @@ function summarizeCartItems(cartItems, callback) {
   }
 
   for (const item of cartItems) {
-    if (!item || typeof item !== "object") {
+    if (!item) {
       return callback("Els elements han de ser objectes vàlids.", null);
     }
     if (typeof item.id !== "number") {
@@ -26,16 +26,17 @@ function summarizeCartItems(cartItems, callback) {
     }
   }
 
-  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  let totalItems = 0;
+  let totalPrice = 0;
+  let itemIds = [];
 
-  const totalPrice = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  for (const { id, price, quantity } of cartItems) {
+    totalItems += quantity;
+    totalPrice += price * quantity;
+    itemIds.push(id);
+  }
 
-  const itemIds = cartItems
-    .map(item => item.id)
-    .sort((a, b) => a - b);
+  itemIds.sort((a, b) => a - b);
 
   const summary = { totalItems, totalPrice, itemIds };
 
@@ -50,7 +51,7 @@ function summarizeCartItems(cartItems, callback) {
  * @returns {Promise<object>}
  */
 function fetchUserRecommendations(userId, callback) {
-  if (typeof userId !== "number" || userId <= 0) {
+  if (userId <= 0) {
     const error = new Error("Invalid user id");
     callback(error, null);
     return Promise.reject(error);
@@ -61,9 +62,9 @@ function fetchUserRecommendations(userId, callback) {
       const payload = {
         userId,
         recommendations: [
-          "Top pick for user 99",
-          "Trending in your area",
-          "Customers too enjoyed"
+          'Top pick for user 99',
+          'Trending in your area',
+          'Customers too enjoyed'
         ]
       };
 
@@ -83,12 +84,14 @@ function fetchUserRecommendations(userId, callback) {
 function authorizeOrderPayment(amount) {
   return new Promise((resolve, reject) => {
     if (amount > 2500) {
-      return reject(new Error("Order total too high"));
+      const error = new Error("Order total too high");
+      return reject(error);
     }
     if (typeof amount !== "number" || amount <= 0) {
-      return reject(new Error("Invalid order amount"));
+      const error = new Error("Invalid order amount");
+      return reject(error);
     }
-    return resolve({ status: "approved", amount });
+    return resolve({ status: "approved", amount});
   });
 }
 
@@ -101,23 +104,22 @@ function authorizeOrderPayment(amount) {
  * @returns {Promise<object>}
  */
 function buildCustomerOnboarding(fetchCustomerProfile, fetchSubscription, fetchWelcomePack) {
-  let customerData = null; // la guardarem aquí
+  let customerData = null; 
 
   return fetchCustomerProfile()
     .then((customer) => {
-      customerData = customer;                  // 1️⃣ Guardem el client
-      return fetchSubscription(customer.id);    // 2️⃣ Demanem la subscripció
+      customerData = customer;
+      return fetchSubscription(customer.id);
     })
     .then((subscription) => {
-      const data = {                           // 3️⃣ Preparem el paquet
+      const object = {
         customer: customerData,
         subscription: subscription,
       };
-      return fetchWelcomePack(data);           // 4️⃣ Produïm el welcome pack
+      return fetchWelcomePack(object);
     })
-    .catch((err) => {
-      // 5️⃣ Si hi ha qualsevol error → emboliquem el missatge
-      throw new Error("Onboarding failed: " + err.message);
+    .catch((error) => {
+      throw new Error("Onboarding failed: " + error.message);
     });
 }
 
@@ -156,37 +158,36 @@ function createInventoryScheduler(fetchNextRestock, applyRestock, intervalMs = 2
   let intervalId = null;
   const statusLog = [];
 
-  async function tick() {
-    // Si ya no está corriendo, no hacemos nada
+  async function loop() {
     if (!running) return;
 
     const batch = await fetchNextRestock();
 
-    // Si no hay más reposiciones, se para automáticamente
     if (batch === null) {
       stop();
       return;
     }
 
-    // batch debería ser un array, pero por seguridad lo normalizamos
-    const updates = Array.isArray(batch) ? batch : [batch];
+    const updates = [];
 
-    for (const update of updates) {
+    if (Array.isArray(batch)) {
+      for (let i = 0; i < batch.length; i++) {
+        updates.push(batch[i]);
+      }
+    } else {
+      updates.push(batch);
+    }
+
+    for (let i = 0; i < updates.length; i++) {
+      const update = updates[i];
+      const sku = update && update.sku;
+
       try {
         const result = await applyRestock(update);
-        statusLog.push({
-          sku: update && update.sku ? update.sku : null,
-          status: 'completed',
-          result,
-          error: null,
-        });
+        statusLog.push({ sku, status: "completed", result, error: null });
       } catch (err) {
-        statusLog.push({
-          sku: update && update.sku ? update.sku : null,
-          status: 'failed',
-          result: null,
-          error: err instanceof Error ? err.message : String(err),
-        });
+        const errorMessage = err.message;
+        statusLog.push({ sku, status: "failed", result: null, error: errorMessage });
       }
     }
   }
@@ -195,28 +196,21 @@ function createInventoryScheduler(fetchNextRestock, applyRestock, intervalMs = 2
     if (running) return;
     running = true;
 
-    // 1️⃣ Primero programamos el intervalo (lo que espía el test)
-    intervalId = setInterval(tick, intervalMs);
+    loop();
 
-    // 2️⃣ Luego disparamos una primera iteración inmediata
-    //    para que fetchNextRestock se llame al menos una vez
-    //    incluso si el test no ejecuta el callback del interval.
-    tick();
+    intervalId = setInterval(loop, intervalMs);
   }
 
   function stop() {
     if (!running) return;
     running = false;
 
-    if (intervalId !== null) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
+    clearInterval(intervalId);
+    intervalId = null;
   }
 
   function getStatus() {
-    // Devolvemos una copia para no exponer el array interno
-    return statusLog.slice();
+    return statusLog;
   }
 
   return { start, stop, getStatus };
