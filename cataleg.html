@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catàleg - Biopic Archive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header class="capcalera-lloc">
+      <div class="contenidor-fluid capcalera-intern">
+        <a class="marca" href="index.html" aria-label="Biopic Archive, inici">
+          <img
+            src="img/logo-biopic-archive.svg"
+            alt="Biopic Archive"
+            width="180"
+            height="40" />
+        </a>
+
+        <nav class="navegacio-principal" aria-label="Navegació principal">
+          <ul class="navegacio-principal-llista">
+            <li class="navegacio-principal-item">
+              <a class="navegacio-principal-enllac"
+                href="cataleg.html">Catàleg</a>
+            </li>
+            <li class="navegacio-principal-item">
+              <a class="navegacio-principal-enllac" href="blog.html">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main id="main">
+      <!-- CAPÇALERA DEL CATÀLEG -->
+      <section class="cataleg-capcalera">
+        <div class="cataleg-capcalera-intern">
+          <h1 class="cataleg-capcalera-titol">Catàleg de Biopic Archive</h1>
+        </div>
+      </section>
+
+      <div class="cataleg-contenidor-principal">
+        <aside class="cataleg-barra-lateral">
+          <div class="cataleg-capcalera-controls">
+            <!-- Menú de navegació interior -->
+            <nav class="cataleg-navegacio" aria-label="Navegació del catàleg">
+              <ul class="cataleg-navegacio-llista">
+                <li class="cataleg-navegacio-item">
+                  <a class="cataleg-navegacio-enllac"
+                    href="#pellicules">Pel·lícules</a>
+                </li>
+                <li class="cataleg-navegacio-item">
+                  <a class="cataleg-navegacio-enllac" href="#series">Sèries</a>
+                </li>
+                <li class="cataleg-navegacio-item">
+                  <a class="cataleg-navegacio-enllac"
+                    href="#documentals">Documentals</a>
+                </li>
+              </ul>
+            </nav>
+
+            <!-- Formulari de cerca -->
+            <form class="cataleg-cerca" action="#" method="get">
+              <label class="nomes-lector" for="search">Cerca</label>
+              <div class="cataleg-cerca-contenidor">
+                <img
+                  class="cataleg-cerca-icona"
+                  src="img/icon-search.svg"
+                  alt
+                  width="20"
+                  height="20" />
+                <input
+                  id="search"
+                  name="search"
+                  type="search"
+                  placeholder="Cerca..." />
+              </div>
+            </form>
+          </div>
+        </aside>
+
+        <div class="cataleg-contingut">
+          <!-- PEL·LÍCULES -->
+          <section id="pellicules" class="cataleg-seccio">
+            <div class=" cataleg-seccio-intern">
+              <h2 class="cataleg-seccio-titol">Pel·lícules</h2>
+
+              <div class="cataleg-graella">
+                <!-- Lee -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>Lee</em></p>
+                    <p class="targeta-biopic-director">Ellen Kuras (2023)</p>
+                    <a class="boto boto-targeta" href="fitxa.html">FITXA
+                      COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Lee_Miller.jpg"
+                      alt="Lee Miller el 1943"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Lee Miller el 1943 (U.S. Army Official Photograph)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Elvis -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>Elvis</em></p>
+                    <p class="targeta-biopic-director">Baz Luhrmann (2022)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Elvis_Presley.jpg"
+                      alt="Elvis Presley el 1969"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">Elvis Presley el 1969</p>
+                  </div>
+                </div>
+
+                <!-- La meva setmana amb Marilyn -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom">
+                      <em>La meva setmana amb Marilyn</em>
+                    </p>
+                    <p class="targeta-biopic-director">Simon Curtis (2011)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Marilyn_Monroe.jpg"
+                      alt="Marilyn Monroe el 1954"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">Marilyn Monroe el 1954</p>
+                  </div>
+                </div>
+
+                <!-- Frida -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>Frida</em></p>
+                    <p class="targeta-biopic-director">Julie Taymor (2002)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Frida_Kahlo.jpg"
+                      alt="Frida Kahlo el 1932"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Frida Kahlo el 1932 (fotografia de Guillermo Kahlo)
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a class="cataleg-seccio-enllac" href="#">Totes les
+                pel·lícules</a>
+            </div>
+          </section>
+
+          <!-- SÈRIES -->
+          <section id="series" class="cataleg-seccio">
+            <div class=" cataleg-seccio-intern">
+              <h2 class="cataleg-seccio-titol">Sèries</h2>
+
+              <div class="cataleg-graella">
+                <!-- Un escàndol molt anglès -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom">
+                      <em>Un escàndol molt anglès</em>
+                    </p>
+                    <p class="targeta-biopic-director">3 episodis (2018)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Jeremy_Thorpe.jpg"
+                      alt="Jeremy Thorpe el 1965"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Jeremy Thorpe el 1965 (fotografia de Walter Bird)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- The Crown -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>The Crown</em></p>
+                    <p class="targeta-biopic-director">60 episodis (2016 —
+                      2023)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Isabel_II.jpg"
+                      alt="Isabel II el 2015"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Isabel II el 2015 (fotografia de Joel Rouse)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- American Crime Story: The People v. O.J. Simpson -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom">
+                      <em>American Crime Story: The People v. O.J. Simpson</em>
+                    </p>
+                    <p class="targeta-biopic-director">10 episodis (2016)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/OJ_Simpson.jpg"
+                      alt="O.J. Simpson el 1990"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      O.J. Simpson el 1990 (fotografia de Gerald Johnson)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Borgia -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>Borgia</em></p>
+                    <p class="targeta-biopic-director">38 episodis (2011 —
+                      2014)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Alejandro_VI_Borgia.jpg"
+                      alt="Alexandre VI (retrat atribuït a Pedro Berruguete, 1495)"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Alexandre VI (retrat atribuït a Pedro Berruguete, 1495)
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a class="cataleg-seccio-enllac" href="#">Totes les sèries</a>
+            </div>
+          </section>
+
+          <!-- DOCUMENTALS -->
+          <section id="documentals" class="cataleg-seccio">
+            <div class=" cataleg-seccio-intern">
+              <h2 class="cataleg-seccio-titol">Documentals</h2>
+
+              <div class="cataleg-graella">
+                <!-- La niña de los cabellos blancos -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom">
+                      <em>La niña de los cabellos blancos</em>
+                    </p>
+                    <p class="targeta-biopic-director">Marcos Hernández
+                      (2025)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Ana_Maria_Matute.jpg"
+                      alt="Ana María Matute el 2011"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">Ana María Matute el 2011</p>
+                  </div>
+                </div>
+
+                <!-- What Happened, Miss Simone? -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom">
+                      <em>What Happened, Miss Simone?</em>
+                    </p>
+                    <p class="targeta-biopic-director">Liz Garbus (2015)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Nina_Simone.jpg"
+                      alt="Nina Simone el 1969"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Nina Simone el 1969 (fotografia de Gerrit de Bruin)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Citizenfour -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>Citizenfour</em></p>
+                    <p class="targeta-biopic-director">Laura Poitras (2014)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Edward_Snowden.jpg"
+                      alt="Edward Snowden el 2013"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">Edward Snowden el 2013</p>
+                  </div>
+                </div>
+
+                <!-- Man On Wire -->
+                <div class="targeta-biopic">
+                  <div class="targeta-biopic-poster">
+                    <p class="targeta-biopic-nom"><em>Man On Wire</em></p>
+                    <p class="targeta-biopic-director">James Marsh (2008)</p>
+                    <a class="boto boto-targeta" href="#">FITXA COMPLETA</a>
+                  </div>
+                  <div class="targeta-biopic-figura">
+                    <img
+                      src="img/Philippe_Petit.jpg"
+                      alt="Philipe Petit el 2009"
+                      width="200"
+                      height="200" />
+                    <p class="targeta-biopic-peu">
+                      Philipe Petit el 2009 (fotografia de Chrisa Hickey)
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a class="cataleg-seccio-enllac" href="#">Tots els documentals</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="peu-pagina">
+      <div class="contenidor-fluid peu-intern">
+        <section class="butlleti" aria-label="Butlletí electrònic">
+          <h2 class="butlleti-titol">
+            Butlletí electrònic: totes les novetats a la teva safata d'entrada
+          </h2>
+
+          <form class="butlleti-formulari" action="#" method="post">
+            <label class="nomes-lector" for="email">Correu electrònic</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="El teu correu"
+              required />
+
+            <div class="butlleti-consentiment">
+              <input id="privacy" name="privacy" type="checkbox" required />
+              <label for="privacy">
+                En subscriure'm, accepto rebre el butlletí de Biopic Archive i
+                declaro que he llegit i accepto la vostra política de
+                privacitat.
+              </label>
+            </div>
+
+            <button class="boto boto-enviar" type="submit">SUBSCRIU-ME</button>
+          </form>
+        </section>
+
+        <nav class="navegacio-peu" aria-label="Enllaços del peu de pàgina">
+          <div class="navegacio-peu-columna">
+            <ul>
+              <li><a href="#">Sobre nosaltres</a></li>
+              <li><a href="#">Contacte</a></li>
+            </ul>
+
+            <ul class="navegacio-peu-espai">
+              <li><a href="#">Política de privacitat</a></li>
+              <li><a href="#">Política de cookies</a></li>
+              <li><a href="#">Avís legal</a></li>
+            </ul>
+          </div>
+
+          <div class="navegacio-peu-columna">
+            <ul>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">TikTok</a></li>
+              <li><a href="#">X</a></li>
+            </ul>
+            <div class="navegacio-peu-espai">
+              <p><span class="peu-subratllat">UOC</span>, 2025-2026. <span
+                  class="peu-subratllat">HTML</span> i
+                <span class="peu-subratllat">CSS</span></p>
+              <p>Martí Ferret Cedó</p>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

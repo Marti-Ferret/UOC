@@ -1,0 +1,195 @@
+================================================================================
+                    INFORME TÈCNIC - BIOPIC ARCHIVE
+================================================================================
+
+Autor: Martí Ferret Cedó
+Data: Gener 2026
+Assignatura: HTML i CSS - UOC
+
+
+================================================================================
+1. ESTRUCTURA DEL PROJECTE
+================================================================================
+
+biopic-archive/
+├── index.html              # Pàgina principal
+├── cataleg.html            # Catàleg de biopics
+├── blog.html               # Blog d'articles
+├── fitxa.html              # Fitxa detallada (exemple: Lee)
+├── css/
+│   └── styles.css          # Full d'estils únic
+└── img/                    # Imatges i icones SVG
+
+
+================================================================================
+2. PÀGINES DEL LLOC WEB
+================================================================================
+
+2.1. index.html
+---------------
+- Secció Hero amb títol principal
+- Història destacada (Oppenheimer) amb vídeo
+- Categories (Pel·lícules, Sèries, Documentals)
+
+2.2. cataleg.html
+-----------------
+- Barra lateral amb navegació i cerca
+- Targetes de biopics organitzades per categories
+- Grid responsive (1 columna en mòbil, 2 en desktop)
+
+2.3. blog.html
+--------------
+- Articles amb etiquetes i metadades
+- Data amb element <time>
+- Paginació al final
+
+2.4. fitxa.html
+---------------
+- Fitxa detallada d'un biopic (Lee)
+- Imatge circular del personatge
+- Dades de la pel·lícula amb <dl>
+- Sinopsi amb vídeo
+
+
+================================================================================
+3. ELEMENTS COMUNS
+================================================================================
+
+3.1. Header
+-----------
+- Logo clicable (torna a l'inici)
+- Navegació: Catàleg i Blog
+- Fons negre amb text blanc
+
+3.2. Footer
+-----------
+- Formulari de subscripció
+- Enllaços legals
+- Xarxes socials
+- Crèdits
+
+
+================================================================================
+4. CSS - CARACTERÍSTIQUES PRINCIPALS
+================================================================================
+
+4.1. Variables CSS
+------------------
+:root {
+  --color-negre: #000000;
+  --color-blanc: #ffffff;
+  --color-vermell: #ed1c1c;
+  --color-beige: #e7e0e0;
+  --color-gris: #c9c9c9;
+
+  --font-title: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+4.2. Mobile First
+-----------------
+- Estils base per a mòbil
+- @media (min-width: 768px) per tablet
+- @media (min-width: 1024px) per desktop
+
+4.3. Layout
+-----------
+- Flexbox per headers, navegació i targetes
+- CSS Grid per catàlegs i graelles
+- Position sticky per barra lateral (desktop)
+
+4.4. Efectes
+------------
+- Transitions en hover (0.3s ease)
+- Pseudo-elements ::after per decoracions
+- Border-radius per imatges circulars i targetes
+
+
+================================================================================
+5. ACCESSIBILITAT
+================================================================================
+
+- Elements semàntics HTML5: <header>, <nav>, <main>, <footer>, <article>
+- Atributs aria-label en navegacions
+- Labels ocults amb classe .nomes-lector
+- Text alternatiu en imatges
+- Validació HTML5 en formularis (required, type="email")
+- Jerarquia correcta de headings (h1 > h2 > h3)
+
+
+================================================================================
+6. RESPONSIVE DESIGN
+================================================================================
+
+MOBILE (0-767px):
+- Layouts en columna
+- Text més petit
+- Iframes altura 200px
+
+TABLET (768px+):
+- Header en fila
+- Targetes en fila
+- Iframes altura 300px
+
+DESKTOP (1024px+):
+- Catàleg amb sidebar sticky
+- Grid de 2 columnes
+- Iframes altura 400px
+- Més espaiament
+
+
+================================================================================
+7. VALIDACIÓ
+================================================================================
+
+HTML: https://validator.w3.org/
+CSS: https://jigsaw.w3.org/css-validator/
+
+NOTES:
+- Atribut "frameborder" obsolet (utilitzar CSS)
+- Custom properties compatibles amb navegadors moderns
+
+
+================================================================================
+8. COMPATIBILITAT
+================================================================================
+
+Compatible amb:
+- Chrome 88+ (2021)
+- Firefox 89+ (2021)
+- Safari 15+ (2021)
+- Edge 88+ (2021)
+
+
+================================================================================
+9. BONES PRÀCTIQUES IMPLEMENTADES
+================================================================================
+
+HTML:
+✓ Estructura semàntica
+✓ Jerarquia correcta de headings
+✓ Meta viewport per responsive
+✓ Atributs alt en imatges
+
+CSS:
+✓ Variables CSS
+✓ Mobile First
+✓ Nomenclatura consistent
+✓ Transicions per millor UX
+
+ACCESSIBILITAT:
+✓ Aria-labels
+✓ Focus visible
+✓ Contrast adequat
+
+RENDIMENT:
+✓ Preconnect per Google Fonts
+✓ Width i height en imatges
+✓ SVG per icones
+
+
+================================================================================
+FI DE L'INFORME
+================================================================================
+
+Última actualització: Gener 2026

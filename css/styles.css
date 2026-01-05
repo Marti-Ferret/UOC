@@ -2,11 +2,11 @@
    VARIABLES
 ========================= */
 :root {
-  --color-bg-light: #ece7e4;
-  --color-bg-dark: #000000;
-  --color-text-dark: #000000;
-  --color-text-light: #ffffff;
-  --color-accent: #ffffff;
+  --color-negre: #000000;
+  --color-blanc: #ffffff;
+  --color-vermell: #ed1c1c;
+  --color-beige: #e7e0e0;
+  --color-gris: #c9c9c9;
 
   --font-title: "Playfair Display", serif;
   --font-body: "Inter", sans-serif;
@@ -21,16 +21,22 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
   font-family: var(--font-body);
-  color: var(--color-text-dark);
-  background-color: var(--color-bg-light);
+  color: var(--color-negre);
+  background-color: var(--color-beige);
   line-height: 1.6;
 }
 
 img {
-  max-width: 100%;
   display: block;
 }
 
@@ -42,18 +48,17 @@ a {
 /* =========================
    UTILITATS
 ========================= */
-.container {
+.contenidor {
   max-width: 100%;
   margin-inline: auto;
   padding: 3rem 1.5rem;
 }
 
-.container--fluid {
-  width: 100%;
+.contenidor-fluid {
   padding: 3rem 2rem;
 }
 
-.sr-only {
+.nomes-lector {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -62,249 +67,1330 @@ a {
 }
 
 /* =========================
-   HEADER
+   MOBILE FIRST (SIN MEDIA QUERIES)
 ========================= */
-.site-header {
-  background-color: var(--color-bg-dark);
+
+/* Capçalera */
+.capcalera-lloc {
+  background-color: var(--color-negre);
 }
 
-.header__inner {
+.capcalera-intern {
   display: flex;
-  justify-content: space-between;
-  padding: 1.2rem 2rem;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1.5rem;
 }
 
-.main-nav__list {
+.navegacio-principal-llista {
   list-style: none;
   display: flex;
   gap: 1rem;
   margin: 0;
   padding: 0;
 }
-.main-nav__list > li:first-child {
+
+.navegacio-principal-llista>li:first-child {
   display: flex;
   align-items: center;
 }
 
-.main-nav__list > li:first-child::after {
+.navegacio-principal-llista>li:first-child::after {
   content: "";
   width: 6px;
   height: 6px;
-  background-color: red;
+  background-color: var(--color-vermell);
   border-radius: 50%;
   margin-left: 1rem;
 }
 
-.main-nav__link {
-  color: var(--color-text-light);
+.navegacio-principal-enllac {
+  color: var(--color-blanc);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.8rem;
+  transition: color 0.3s ease;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero {
-  background-color: var(--color-bg-light);
+.navegacio-principal-enllac:hover {
+  color: var(--color-vermell);
+}
+
+.cataleg-contenidor-principal {
+  padding: 1rem;
+}
+
+.contenidor-fluid {
+  padding: 1rem 1rem;
+}
+
+/* Secció hero */
+.seccio-hero {
+  background-color: var(--color-beige);
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
-
 }
 
-.hero__title {
+.hero-titol {
   font-family: var(--font-title);
   margin-bottom: 1rem;
-  font-size: 2.5rem ;
+  font-size: 2.5rem;
 }
 
-.hero__lead {
+.hero-text-principal {
   max-width: 800px;
   margin-inline: auto;
   font-family: var(--font-title);
-  font-size: 2rem;
-
+  font-size: 1.5rem;
 }
 
-/* =========================
-   HISTÒRIA DESTACADA
-========================= */
-.featured {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
+/* Història destacada */
+.seccio-destacada {
+  background-color: var(--color-negre);
+  color: var(--color-blanc);
 }
 
-.featured__inner {
+.destacada-intern {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-.featured__title {
+.destacada-titol {
   font-family: var(--font-title);
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
-.featured__name {
-  font-size: 1.5rem;
+.destacada-nom {
+  font-size: 1rem;
   margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.featured__desc {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-}
-
-.featured__media iframe {
-  border: 0;
-}
-
-/* Botó */
-.btn {
-  display: inline-block;
-  padding: 0.4rem 1.2rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border: 1px solid var(--color-text-light);
-}
-
-.btn--light {
-  background-color: var(--color-text-light);
-  color: var(--color-text-dark);
-}
-
-/* =========================
-   CATEGORIES
-========================= */
-.categories {
-  background-color: var(--color-bg-light);
-  text-align: center;
-  display: flex;
-}
-
-.categories__title {
-  font-family: var(--font-title);
-  font-size: 1.8rem;
-  margin-bottom: 2.5rem;
-}
-
-.categories__grid {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-
-.category-card {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.category-card__label {
+.destacada-descripcio {
+  margin-bottom: 1rem;
   font-size: 1rem;
 }
 
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
+.destacada-text .boto {
+  margin-bottom: 2rem;
 }
 
-.footer__inner {
-  display: grid;
-  gap: 3rem;
-}
 
-.newsletter__title {
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.newsletter__form input[type="email"] {
+.destacada-media {
   width: 100%;
-  padding: 0.5rem;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #666;
-  color: var(--color-text-light);
 }
 
-.newsletter__consent {
-  margin: 1rem 0;
-  font-size: 0.75rem;
+.destacada-media iframe {
+  border: 0;
+  width: 100%;
+  height: 200px;
 }
 
-.newsletter__consent a {
-  text-decoration: underline;
+/* Botons */
+.boto {
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  border: 1px solid var(--color-blanc);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-.btn--submit {
-  background-color: var(--color-text-light);
-  color: var(--color-text-dark);
+.boto-clar {
+  background-color: var(--color-blanc);
+  color: var(--color-negre);
+  border-color: var(--color-blanc);
+}
+
+.boto-clar:hover {
+  background-color: var(--color-vermell);
+  color: var(--color-blanc);
+}
+
+.boto-enviar {
+  background-color: var(--color-blanc);
+  color: var(--color-negre);
   border: none;
   padding: 0.6rem 1.4rem;
   font-size: 0.75rem;
   font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Footer nav */
-.footer-nav {
-  display: grid;
+.boto-enviar:hover {
+  background-color: var(--color-vermell);
+  color: var(--color-negre);
+}
+
+/* Categories */
+.seccio-categories {
+  background-color: var(--color-beige);
+  text-align: center;
+}
+
+.categories-titol {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.categories-graella {
+  margin-bottom: 4rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.targeta-categoria {
+  background-color: var(--color-negre);
+  color: var(--color-blanc);
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+}
+
+.targeta-categoria img {
+  align-items: center;
+  width: 100%;
+}
+
+.targeta-categoria:hover {
+  color: var(--color-vermell);
+}
+
+.targeta-categoria-etiqueta {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 1rem;
+  text-align: left;
+
+}
+
+/* Peu de pàgina */
+.peu-pagina {
+  background-color: var(--color-negre);
+  color: var(--color-blanc);
+}
+
+.peu-intern {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.butlleti-titol {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.butlleti-formulari input[type="email"] {
+  width: 100%;
+  padding: 0.8rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: var(--color-blanc);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.butlleti-formulari input[type="email"]::placeholder {
+  color: #999;
+}
+
+.butlleti-formulari input[type="email"]:focus {
+  outline: none;
+  border-bottom-color: var(--color-blanc);
+}
+
+.butlleti-consentiment {
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.butlleti-consentiment input[type="checkbox"] {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.butlleti-consentiment a {
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.butlleti-consentiment a:hover {
+  color: var(--color-vermell);
+}
+
+.navegacio-peu {
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
-.footer-nav__title {
+.navegacio-peu-titol {
   font-weight: 700;
   margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
-.footer-nav ul {
+.navegacio-peu ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.footer-nav li {
+.navegacio-peu li {
   margin-bottom: 0.4rem;
 }
 
-.footer-meta {
+.navegacio-peu a {
+  transition: color 0.3s ease;
+}
+
+.navegacio-peu a:hover {
+  color: var(--color-vermell);
+}
+
+.peu-meta {
   font-size: 0.75rem;
   opacity: 0.8;
 }
 
+.peu-meta p {
+  margin: 0.25rem 0;
+}
+
+.peu-subratllat {
+  border-bottom: 2px dotted var(--color-blanc);
+
+}
+
+.peu-subratllat:hover {
+  cursor: help;
+
+}
+
+/* Catàleg */
+.cataleg-capcalera {
+  background-color: var(--color-beige);
+  width: 100%;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.cataleg-capcalera-intern {
+  gap: 2rem;
+}
+
+.cataleg-capcalera-titol {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.cataleg-capcalera-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cataleg-navegacio-llista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.cataleg-navegacio-item {
+  border-bottom: 1px solid black;
+}
+
+.cataleg-navegacio-enllac {
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.cataleg-navegacio-enllac:hover {
+  color: var(--color-vermell);
+}
+
+.cataleg-cerca-contenidor {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cataleg-cerca-icona {
+  position: absolute;
+  right: 0.5rem;
+  width: 20px;
+  height: 20px;
+}
+
+.cataleg-cerca input[type="search"] {
+  width: 100%;
+  padding: 0.8rem 2.5rem 0.8rem 0.5rem;
+  font-size: 1rem;
+}
+
+.cataleg-cerca input[type="search"]::placeholder {
+  color: #999;
+}
+
+.cataleg-cerca input[type="search"]:focus {
+  outline: none;
+  border-bottom-color: var(--color-negre);
+}
+
+.cataleg-seccio {
+  background-color: var(--color-beige);
+}
+
+.cataleg-seccio-intern {
+  margin: 1rem 0;
+}
+
+.cataleg-seccio-titol {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.cataleg-graella {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.targeta-biopic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 250px;
+}
+
+.targeta-biopic-poster {
+  background-color: var(--color-negre);
+  color: var(--color-blanc);
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.targeta-biopic-nom {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.targeta-biopic-director {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.boto-targeta {
+  background-color: white;
+  color: var(--color-negre);
+  border-color: var(--color-blanc);
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.boto-targeta:hover {
+  background-color: var(--color-vermell);
+  color: var(--color-negre);
+  border-color: var(--color-negre);
+}
+
+.targeta-biopic-figura {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.targeta-biopic-figura img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.targeta-biopic-peu {
+  font-size: 0.75rem;
+  margin: 0;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.cataleg-seccio-enllac {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background-color: var(--color-negre);
+  color: var(--color-blanc);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cataleg-seccio-enllac:hover {
+  background-color: var(--color-vermell);
+}
+
+/* Fitxa */
+.fitxa-capcalera {
+  background-color: var(--color-beige);
+  padding: 2rem 1.5rem 1rem !important;
+  max-width: 1000px !important;
+  margin-inline: auto;
+
+}
+
+.fitxa-capcalera-intern {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0rem 2rem 0rem 0rem !important;
+}
+
+.fitxa-imatge-descripcio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  border-top: 1px solid var(--color-negre);
+  border-bottom: 1px solid var(--color-negre);
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  padding-left: 0rem;
+}
+
+.fitxa-etiqueta {
+  background-color: var(--color-gris);
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  margin-left: 0;
+  align-self: flex-start;
+}
+
+.fitxa-titol {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.fitxa-contenidor {
+  margin-inline: auto;
+  padding: 1rem 1.5rem !important;
+  max-width: 1000px !important;
+
+}
+
+.fitxa-contingut {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.fitxa-imatge {
+  text-align: center;
+}
+
+.fitxa-imatge img {
+  width: 300px !important;
+  height: 300px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.fitxa-biografia {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fitxa-biografia-titol {
+  background-color: var(--color-gris);
+  font-size: 1rem;
+  align-self: flex-start;
+  margin-bottom: 0;
+}
+
+.fitxa-biografia-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 700;
+}
+
+.fitxa-dades {
+  margin-top: 2rem;
+}
+
+.fitxa-dades-titol {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
+}
+
+.fitxa-llista {
+  margin: 0;
+}
+
+.fitxa-llista-terme {
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.fitxa-llista-descripcio {
+  font-size: 1rem;
+  margin: 0 0 0 1rem;
+}
+
+.llista-actors {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.llista-actors li {
+  display: inline;
+}
+
+.llista-actors li::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-vermell);
+  margin-left: 0.5rem;
+  vertical-align: text-bottom;
+}
+
+.llista-actors li:last-child::after {
+  display: none;
+}
+
+.fitxa-sinopsi {
+  margin-top: 2rem;
+}
+
+.fitxa-sinopsi-titol {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
+}
+
+.fitxa-sinopsi-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.fitxa-video {
+  margin-top: 1.5rem;
+}
+
+.fitxa-video iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+}
+
+.fitxa-text-video {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 0;
+  margin-bottom: 8rem;
+}
+
+/* Blog */
+.blog-capcalera {
+  background-color: var(--color-beige);
+  width: 100%;
+  padding: 1rem 2rem 3rem 1rem !important;
+  max-width: 1000px;
+  margin-inline: auto;
+
+}
+
+.blog-capcalera-titol {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.blog-contenidor {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 1rem 2rem 3rem 1rem !important;
+  background-color: var(--color-beige);
+}
+
+.blog-contingut {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.blog-article {
+  background-color: var(--color-beige);
+  padding-bottom: 2rem;
+}
+
+.blog-article:last-child {
+  border-bottom: none;
+}
+
+.blog-article-etiquetes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-article-etiquetes-icona {
+  width: 16px;
+  height: 16px;
+}
+
+.blog-article-etiquetes-llista {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.blog-article-etiquetes-llista li {
+  display: inline;
+}
+
+.blog-article-etiquetes-llista li:last-child::after {
+  display: none;
+}
+
+.blog-article-etiquetes-llista a {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--color-negre);
+  padding: 0.25rem 0.75rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-article-etiquetes-llista a:hover {
+  background-color: var(--color-vermell);
+  color: var(--color-negre);
+  border-color: var(--color-vermell);
+}
+
+.blog-article-titol {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.blog-article-titol a {
+  color: var(--color-negre);
+}
+
+.blog-article-titol a:hover {
+  color: var(--color-vermell);
+}
+
+.blog-article-separador {
+  display: flex;
+  flex-direction: column !important;
+  gap: 0rem !important;
+}
+
+.blog-article-data {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: var(--color-negre);
+}
+
+.blog-article-resum {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.blog-article-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-article-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.blog-article-meta-icona {
+  width: 16px;
+  height: 16px;
+}
+
+.blog-article-meta-item a {
+  border-bottom: 2px dotted var(--color-negre);
+  transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+.blog-article-meta-item a:hover {
+  border-bottom: 2px solid var(--color-negre);
+}
+
+.blog-article-enllac {
+  display: inline-block;
+  border-bottom: 2px dotted var(--color-negre);
+  font-size: 1rem;
+  transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+.blog-article-enllac:hover {
+  border-bottom: 2px solid var(--color-negre);
+}
+
+.blog-paginacio {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.blog-paginacio-llista {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 10rem;
+  padding: 0;
+}
+
+.blog-paginacio-item {
+  display: inline-block;
+}
+
+.blog-paginacio-enllac {
+  display: block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-blanc);
+  color: var(--color-negre);
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-paginacio-enllac:hover {
+  background-color: var(--color-negre);
+  color: var(--color-blanc);
+  border-color: var(--color-negre);
+}
+
 /* =========================
-   RESPONSIVE
+   RESPONSIVE - TABLET
 ========================= */
-
-/* Tablet */
 @media (min-width: 768px) {
-  .featured__inner {
+
+  .contenidor-fluid {
+    padding: 1rem 1rem;
   }
 
-  .categories__grid {
+  .cataleg-contenidor-principal {
+    padding: 1rem;
   }
 
-  .footer-nav {
+  .boto {
+    font-size: 0.75rem;
+  }
+
+  .capcalera-intern {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+  }
+
+  .cataleg-navegacio-item {
+    border-bottom: 1px solid black;
+  }
+
+  .hero-titol {
+    font-size: 3rem;
+  }
+
+  .hero-text-principal {
+    font-size: 2rem;
+  }
+
+  .destacada-intern {
+    flex-direction: column;
+  }
+
+  .destacada-titol {
+    font-size: 1.5rem;
+  }
+
+  .destacada-media iframe {
+    height: 300px;
+  }
+
+  .categories-graella {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .targeta-categoria {
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .peu-intern {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .butlleti {
+    width: 100%;
+  }
+
+  .navegacio-peu {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .navegacio-peu-columna {
+    flex: 1;
+  }
+
+  .navegacio-peu-espai {
+    margin-top: 3rem !important;
+  }
+
+  .cataleg-capcalera-intern {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cataleg-capcalera-titol {
+    font-size: 2.5rem;
+  }
+
+  .cataleg-navegacio-llista {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cataleg-graella {
+    gap: 2rem;
+  }
+
+  .targeta-biopic-nom {
+    font-size: 1.5rem;
+  }
+
+  .targeta-biopic-director {
+    font-size: 1rem;
+  }
+
+  .boto-targeta {
+    margin-top: 1.5rem;
+  }
+
+  .targeta-biopic-figura img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .targeta-biopic-peu {
+    font-size: 0.875rem;
+  }
+
+  .cataleg-seccio-enllac {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .fitxa-capcalera-intern {
+    flex-direction: column;
+    padding: 0rem 2rem 0rem 0rem !important;
+  }
+
+  .fitxa-titol {
+    text-align: left;
+    flex: 1;
+  }
+
+  .fitxa-contingut {
+    gap: 0rem;
+  }
+
+  .fitxa-biografia {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+
+  .fitxa-imatge {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .fitxa-biografia-titol {
+    grid-row: 1;
+  }
+
+  .fitxa-biografia-text {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .fitxa-imatge img {
+    width: 175px;
+    height: 175px;
+  }
+
+  .fitxa-video iframe {
+    height: 400px;
+  }
+
+  .fitxa-imatge-descripcio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-capcalera-titol {
+    font-size: 2.5rem;
+  }
+
+  .blog-contenidor {
+    padding: 0 !important;
+  }
+
+  .blog-capcalera {
+    padding: 0 !important;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+  }
+
+  .blog-article-separador {
+    flex-direction: column;
+    gap: 0rem;
+
+  }
+
+  .blog-article-titol {
+    font-size: 1.8rem;
+  }
+
+  .blog-article-meta {
+    flex-direction: column;
+    justify-content: end;
+    white-space: nowrap;
   }
 }
 
-/* Desktop */
+/* =========================
+   RESPONSIVE - DESKTOP
+========================= */
 @media (min-width: 1024px) {
-  .container {
+
+  .boto {
+    font-size: 0.75rem;
   }
 
-  .hero__lead {
+  .blog-article-separador {
+    flex-direction: row !important;
+    gap: 1rem !important;
+  }
+
+  .contenidor {
+    max-width: 1200px;
+    padding: 4rem 2rem;
+  }
+
+  .seccio-hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-titol {
+    font-size: 3.5rem;
+  }
+
+  .hero-text-principal {
+    font-size: 2.2rem;
+  }
+
+  .destacada-intern {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .destacada-titol {
+    font-size: 2rem;
+  }
+
+  .destacada-nom {
+    font-size: 1.2rem;
+  }
+
+  .destacada-descripcio {
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+
+  .destacada-media iframe {
+    height: 400px;
+  }
+
+  .categories-titol {
+    font-size: 2rem;
+  }
+
+  .categories-graella {
+    gap: 2rem;
+  }
+
+  .targeta-categoria {
+    max-width: 220px;
+  }
+
+  .butlleti {
+    width: 50%;
+  }
+
+  .peu-intern {
+    flex-direction: row;
+    gap: 15rem;
+    padding: 2rem 4rem;
+  }
+
+  .butlleti-titol {
+    font-size: 1.2rem;
+  }
+
+  .navegacio-peu {
+    gap: 14rem;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .capcalera-intern {
+    padding: 2rem 4rem;
+  }
+
+  .cataleg-capcalera-titol {
+    font-size: 2.5rem;
+  }
+
+  .cataleg-contenidor-principal {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    background-color: var(--color-beige);
+    gap: 4rem;
+  }
+
+  .cataleg-barra-lateral {
+    position: sticky;
+    top: 2rem;
+    width: 200px;
+  }
+
+  .cataleg-capcalera-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .cataleg-navegacio-llista {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .cataleg-navegacio-item {
+    width: 200px;
+    border-bottom: 1px solid black;
+  }
+
+  .cataleg-navegacio-enllac {
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+  .cataleg-cerca input[type="search"] {
+    width: 100%;
+    min-width: auto;
+    padding: 0.6rem 2.2rem 0.6rem 0.5rem;
+  }
+
+  .cataleg-contingut {
+    width: 100%;
+  }
+
+  .cataleg-seccio {
+    padding: 0;
+    margin-bottom: 8rem;
+  }
+
+  .cataleg-seccio-intern {
+    padding: 0;
+  }
+
+  .cataleg-seccio-titol {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cataleg-graella {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    row-gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .cataleg-seccio-enllac {
+    float: right;
+    clear: both;
+    font-size: 0.7rem;
+  }
+
+  .targeta-biopic {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .targeta-biopic-nom {
+    font-size: 1.5rem;
+  }
+
+  .targeta-biopic-director {
+    font-size: 0.85rem;
+  }
+
+  .targeta-biopic-figura {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .targeta-biopic-figura img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .targeta-biopic-peu {
+    font-size: 0.7rem;
+  }
+
+  .fitxa-capcalera {
+    padding: 3rem 2rem 1.5rem;
+  }
+
+  .fitxa-titol {
+    font-size: 2.5rem;
+  }
+
+  .fitxa-contenidor {
+    padding: 3rem 2rem;
+  }
+
+  .fitxa-imatge img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .fitxa-dades-titol {
+    font-size: 1.8rem;
+  }
+
+  .fitxa-sinopsi-titol {
+    font-size: 1.8rem;
+  }
+
+  .fitxa-video iframe {
+    width: 100%;
+    height: 600px !important;
+    border: 0;
+  }
+
+  .fitxa-imatge-descripcio {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .blog-capcalera-titol {
+    font-size: 3rem;
+  }
+
+  .blog-contenidor {
+    padding: 1rem 2rem;
+  }
+
+  .blog-article {
+    padding-bottom: 3rem;
+  }
+
+  .blog-article-titol {
+    font-size: 2rem;
+  }
+
+  .blog-article-resum {
+    font-size: 1rem;
   }
 }

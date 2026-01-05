@@ -1,39 +1,38 @@
 <!doctype html>
 <html lang="ca">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Biopic Archive</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css">
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="container container--fluid header__inner">
-        <a class="brand" href="index.html" aria-label="Biopic Archive, inici">
+    <header class="capcalera-lloc">
+      <div class="contenidor-fluid capcalera-intern">
+        <a class="marca" href="index.html" aria-label="Biopic Archive, inici">
           <img
             src="img/logo-biopic-archive.svg"
             alt="Biopic Archive"
             width="180"
-            height="40"
-          />
+            height="40" />
         </a>
 
-        <nav class="main-nav" aria-label="Navegació principal">
-          <ul class="main-nav__list">
-            <li class="main-nav__item">
-              <a class="main-nav__link" href="cataleg.html">Catàleg</a>
+        <nav class="navegacio-principal" aria-label="Navegació principal">
+          <ul class="navegacio-principal-llista">
+            <li class="navegacio-principal-item">
+              <a class="navegacio-principal-enllac"
+                href="cataleg.html">Catàleg</a>
             </li>
-            <li class="main-nav__item">
-              <a class="main-nav__link" href="blog.html">Blog</a>
+            <li class="navegacio-principal-item">
+              <a class="navegacio-principal-enllac" href="blog.html">Blog</a>
             </li>
           </ul>
         </nav>
@@ -43,83 +42,78 @@
     <!-- MAIN -->
     <main id="main">
       <!-- HERO -->
-      <section class="hero">
-        <div class="container hero__inner">
-          <h1 class="hero__title">Biopic Archive</h1>
-          <p class="hero__lead">
-            L'arxiu definitiu per descobrir <em>biopics</em>: històries autèntiques
-            que mereixen ser explicades.
+      <section class="seccio-hero">
+        <div class="contenidor seccio-hero-intern">
+          <h1 class="hero-titol">Biopic Archive</h1>
+          <p class="hero-text-principal">
+            L'arxiu definitiu per descobrir <em>biopics</em>: històries
+            autèntiques que mereixen ser explicades.
           </p>
         </div>
       </section>
 
       <!-- HISTÒRIA DESTACADA (secció fosca a 100%) -->
-      <section class="featured">
-        <div class="container container--fluid featured__inner">
-          <div class="featured__text">
-            <h2 class="featured__title">Història destacada</h2>
-            <p class="featured__name"><em>Oppenheimer</em> (2023)</p>
-            <p class="featured__desc">
+      <section class="seccio-destacada">
+        <div class="contenidor contenidor-fluid destacada-intern">
+          <div class="destacada-text">
+            <h2 class="destacada-titol">Història destacada</h2>
+            <p class="destacada-nom"><em>Oppenheimer</em> (2023)</p>
+            <p class="destacada-descripcio">
               La vida del físic darrere del projecte Manhattan
             </p>
 
             <!-- Enllaç buit segons enunciat -->
-            <a class="btn btn--light" href="">VEGEU FITXA COMPLETA</a>
+            <a class="boto boto-clar" href="#">VEGEU FITXA COMPLETA</a>
           </div>
 
-          <div class="featured__media">
+          <div class="destacada-media">
             <div class="video">
               <iframe
                 width="750"
                 height="400"
                 src="https://www.youtube.com/embed/bK6ldnjE3Y0"
                 title="Oppenheimer | Official Trailer"
-                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+                allowfullscreen></iframe>
             </div>
           </div>
         </div>
       </section>
 
       <!-- CATEGORIES -->
-      <section class="categories">
-        <div class="container categories__inner">
-          <h2 class="categories__title">Explora per categories</h2>
+      <section class="seccio-categories">
+        <div class="contenidor seccio-categories-intern">
+          <h2 class="categories-titol">Explora per categories</h2>
 
-          <div class="categories__grid">
-            <a class="category-card" href="cataleg.html#pellicules">
+          <div class="categories-graella">
+            <a class="targeta-categoria" href="cataleg.html#pellicules">
               <img
-                class="category-card__icon"
+                class="targeta-categoria-icona"
                 src="img/icon-films.svg"
-                alt=""
-                width="150"
-                height="150"
-              />
-              <span class="category-card__label">Pel·lícules</span>
+                alt
+                width="200"
+                height="200" />
+              <span class="targeta-categoria-etiqueta">Pel·lícules</span>
             </a>
 
-            <a class="category-card" href="cataleg.html#series">
+            <a class="targeta-categoria" href="cataleg.html#series">
               <img
-                class="category-card__icon"
+                class="targeta-categoria-icona"
                 src="img/icon-series.svg"
-                alt=""
-                width="150"
-                height="150"
-              />
-              <span class="category-card__label">Sèries</span>
+                alt
+                width="200"
+                height="200" />
+              <span class="targeta-categoria-etiqueta">Sèries</span>
             </a>
 
-            <a class="category-card" href="cataleg.html#documentals">
+            <a class="targeta-categoria" href="cataleg.html#documentals">
               <img
-                class="category-card__icon"
+                class="targeta-categoria-icona"
                 src="img/icon-docs.svg"
-                alt=""
-                width="150"
-                height="150"
-              />
-              <span class="category-card__label">Documentals</span>
+                alt
+                width="200"
+                height="200" />
+              <span class="targeta-categoria-etiqueta">Documentals</span>
             </a>
           </div>
         </div>
@@ -127,68 +121,64 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container container--fluid footer__inner">
-        <section class="newsletter" aria-label="Butlletí electrònic">
-          <h2 class="newsletter__title">
+    <footer class="peu-pagina">
+      <div class="contenidor-fluid peu-intern">
+        <section class="butlleti" aria-label="Butlletí electrònic">
+          <h2 class="butlleti-titol">
             Butlletí electrònic: totes les novetats a la teva safata d'entrada
           </h2>
 
-          <form class="newsletter__form" action="#" method="post">
-            <label class="sr-only" for="email">Correu electrònic</label>
+          <form class="butlleti-formulari" action="#" method="post">
+            <label class="nomes-lector" for="email">Correu electrònic</label>
             <input
               id="email"
               name="email"
               type="email"
               placeholder="El teu correu"
-              required
-            />
+              required />
 
-            <div class="newsletter__consent">
+            <div class="butlleti-consentiment">
               <input id="privacy" name="privacy" type="checkbox" required />
               <label for="privacy">
                 En subscriure'm, accepto rebre el butlletí de Biopic Archive i
-                declaro que he llegit i accepto la vostra
-                <a href="">política de privacitat</a>
+                declaro que he llegit i accepto la vostra política de
+                privacitat.
               </label>
             </div>
 
-            <button class="btn btn--submit" type="submit">SUBSCRIU-ME</button>
+            <button class="boto boto-enviar" type="submit">SUBSCRIU-ME</button>
           </form>
         </section>
 
-        <nav class="footer-nav" aria-label="Enllaços del peu de pàgina">
-          <div class="footer-nav__col">
-            <p class="footer-nav__title">Sobre nosaltres</p>
+        <nav class="navegacio-peu" aria-label="Enllaços del peu de pàgina">
+          <div class="navegacio-peu-columna">
             <ul>
-              <li><a href="">Sobre nosaltres</a></li>
-              <li><a href="">Contacte</a></li>
+              <li><a href="#">Sobre nosaltres</a></li>
+              <li><a href="#">Contacte</a></li>
+            </ul>
+
+            <ul class="navegacio-peu-espai">
+              <li><a href="#">Política de privacitat</a></li>
+              <li><a href="#">Política de cookies</a></li>
+              <li><a href="#">Avís legal</a></li>
             </ul>
           </div>
 
-          <div class="footer-nav__col">
-            <p class="footer-nav__title">Legal</p>
+          <div class="navegacio-peu-columna">
             <ul>
-              <li><a href="">Política de privacitat</a></li>
-              <li><a href="">Política de cookies</a></li>
-              <li><a href="">Avís legal</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">TikTok</a></li>
+              <li><a href="#">X</a></li>
             </ul>
-          </div>
+            <div class="navegacio-peu-espai">
+              <p><abbr class="peu-subratllat">UOC</abbr>, 2025-2026. <abbr
+                  class="peu-subratllat">HTML</abbr> i
+                <abbr class="peu-subratllat">CSS</abbr></p>
+              <p>Martí Ferret Cedó</p>
+            </div>
 
-          <div class="footer-nav__col">
-            <p class="footer-nav__title">Xarxes</p>
-            <ul>
-              <li><a href="">Instagram</a></li>
-              <li><a href="">TikTok</a></li>
-              <li><a href="">X</a></li>
-            </ul>
           </div>
         </nav>
-
-        <div class="footer-meta">
-          <p>UOC, 2025-2026. HTML i CSS</p>
-          <p>Nom i cognoms de l’estudiant</p>
-        </div>
       </div>
     </footer>
   </body>
