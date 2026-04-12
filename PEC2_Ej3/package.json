@@ -1,0 +1,20 @@
+{
+  "name": "pec2_ej3",
+  "version": "1.0.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "mferretce <mferretce@uoc.edu>",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "ts-loader": "^9.5.7",
+    "typescript": "^6.0.2",
+    "webpack": "^5.106.1",
+    "webpack-cli": "^7.0.2"
+  }
+}
