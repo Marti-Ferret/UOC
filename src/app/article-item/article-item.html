@@ -1,0 +1,19 @@
+<div class="bg-blue-100 flex flex-col mt-4" [class.on-sale]="article.isOnSale">
+  <img class="w-64 h-auto" [src]="article.imageUrl" [alt]="article.name">
+  <h2>{{ article.name }}</h2>
+
+  <p [ngClass]="article.isOnSale ? 'preu-venda' : 'preu-no-venda'">
+    Preu: {{ article.price }} €
+  </p>
+
+  <p>En venda: {{ article.isOnSale ? 'Sí' : 'No' }}</p>
+
+  <div *ngIf="article.isOnSale">
+    <p>Quantitat: {{ article.quantityInCart }}</p>
+    <div class="flex gap-4">
+          <button class="border p-2 rounded-full" (click)="decrement()" [disabled]="article.quantityInCart === 0">-</button>
+      <button class="border p-2 rounded-full" (click)="increment()">+</button>
+    </div>
+
+  </div>
+</div>
