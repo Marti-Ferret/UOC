@@ -1,0 +1,9 @@
+@if (article$ | async; as article) {
+  <div class="max-w-md mt-6 p-6 border rounded">
+    <h2 class="text-xl font-semibold mb-4">{{ article.name }}</h2>
+    <img class="w-64 h-auto mb-4" [src]="article.imageUrl | defaultImage" [alt]="article.name">
+    <p>Preu: {{ article.price | currency:'EUR':'symbol':'1.2-2' }}</p>
+    <p>En venda: {{ article.isOnSale ? 'Sí' : 'No' }}</p>
+    <p>Quantitat al carret: {{ article.quantityInCart }}</p>
+  </div>
+}

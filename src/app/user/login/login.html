@@ -1,0 +1,23 @@
+<div class="max-w-md mt-6 p-6 border rounded">
+  <h2 class="text-xl font-semibold mb-4">Login</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="flex flex-col mb-4">
+      <label class="mb-1">Usuari</label>
+      <input class="border p-2 rounded" formControlName="username" placeholder="nom d'usuari">
+    </div>
+
+    <div class="flex flex-col mb-4">
+      <label class="mb-1">Contrasenya</label>
+      <input class="border p-2 rounded" formControlName="password" type="password" placeholder="contrasenya">
+    </div>
+
+    @if (errorMessage) {
+      <p class="text-red-500 mb-4">{{ errorMessage }}</p>
+    }
+
+    <button class="bg-blue-500 text-white px-4 py-2 rounded" type="submit">Login</button>
+
+  </form>
+</div>

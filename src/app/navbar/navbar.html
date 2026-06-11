@@ -1,6 +1,6 @@
-<nav class="flex gap-4">
-  <button class="bg-blue-500 text-white px-4 py-2 rounded" (click)="navigate.emit('list')">Inici</button>
-  <button class="bg-blue-500 text-white px-4 py-2 rounded" (click)="navigate.emit('list')">Articles</button>
-  <button class="bg-blue-500 text-white px-4 py-2 rounded" (click)="navigate.emit('template')">Nou article template</button>
-  <button class="bg-blue-500 text-white px-4 py-2 rounded" (click)="navigate.emit('reactive')">Nou article reactiu</button>
+<nav class="flex gap-4 p-4 bg-gray-100">
+  <a class="bg-blue-500 text-white px-4 py-2 rounded" routerLink="/user/login">Login</a>
+  <a class="bg-blue-500 text-white px-4 py-2 rounded" routerLink="/user/register">Register</a>
+  <a class="bg-blue-500 text-white px-4 py-2 rounded" routerLink="/article/list">Article List</a>
+  <a class="bg-blue-500 text-white px-4 py-2 rounded" routerLink="/article/create">Create Article</a>
 </nav>

@@ -1,5 +1,2 @@
-<app-navbar (navigate)="onNavigate($event)"></app-navbar>
-
-<app-article-list *ngIf="currentView === 'list'"></app-article-list>
-<app-article-new-template *ngIf="currentView === 'template'"></app-article-new-template>
-<app-article-new-reactive *ngIf="currentView === 'reactive'"></app-article-new-reactive>
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>

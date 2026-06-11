@@ -1,0 +1,47 @@
+<div class="max-w-md mt-6 p-6 border rounded">
+  <h2 class="text-xl font-semibold mb-4">Nou article</h2>
+
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+
+    <div class="flex flex-col mb-4">
+      <label class="mb-1">Nom</label>
+      <input class="border p-2 rounded" formControlName="name" placeholder="Ex: Auriculars gaming">
+      @if (name?.errors?.['required'] && (name?.dirty || name?.touched || submitted)) {
+        <span class="text-red-500 text-sm">El nom es obligatori</span>
+      }
+      @if (name?.errors?.['forbiddenName'] && (name?.dirty || name?.touched || submitted)) {
+        <span class="text-red-500 text-sm">El nom no pot ser Prova, Test, Mock ni Fake</span>
+      }
+    </div>
+
+    <div class="flex flex-col mb-4">
+      <label class="mb-1">Preu</label>
+      <input class="border p-2 rounded" formControlName="price" type="number" step="0.01" placeholder="0.00">
+      @if (price?.errors?.['required'] && (price?.dirty || price?.touched || submitted)) {
+        <span class="text-red-500 text-sm">El preu és obligatori</span>
+      }
+      @if (price?.errors?.['min'] && (price?.dirty || price?.touched || submitted)) {
+        <span class="text-red-500 text-sm">El preu mínim és 0,1 €</span>
+      }
+    </div>
+
+    <div class="flex flex-col mb-4">
+      <label class="mb-1">URL</label>
+      <input class="border p-2 rounded" formControlName="imageUrl" placeholder="https://...">
+      @if (imageUrl?.errors?.['required'] && (imageUrl?.dirty || imageUrl?.touched || submitted)) {
+        <span class="text-red-500 text-sm">La URL és obligatòria</span>
+      }
+      @if (imageUrl?.errors?.['pattern'] && (imageUrl?.dirty || imageUrl?.touched || submitted)) {
+        <span class="text-red-500 text-sm">La URL no és vàlida</span>
+      }
+    </div>
+
+    <div class="flex items-center gap-2 mb-4">
+      <input formControlName="isOnSale" type="checkbox">
+      <label>En venda</label>
+    </div>
+
+    <button class="bg-blue-500 text-white px-4 py-2 rounded" type="submit">Crear article</button>
+
+  </form>
+</div>

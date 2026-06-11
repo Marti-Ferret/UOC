@@ -1,11 +1,10 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  templateUrl: './navbar.html',
-  styles: []
+  imports: [RouterLink],
+  templateUrl: './navbar.html'
 })
-export class Navbar {
-  @Output() navigate = new EventEmitter<string>();
-}
+export class Navbar {}

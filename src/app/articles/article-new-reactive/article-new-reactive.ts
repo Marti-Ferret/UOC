@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgIf } from '@angular/common';
-import { NameArticleValidator } from '../name-article.validator';
+import { NameArticleValidator } from '../../validators/name-article.validator';
+import { ArticleService } from '../../services/article.service';
+import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'app-article-new-reactive',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule],
   templateUrl: './article-new-reactive.html',
 })
 export class ArticleNewReactive {
@@ -15,7 +16,7 @@ export class ArticleNewReactive {
 
   urlPattern = 'https?://[a-zA-Z0-9]+(\\.?[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,3}(/[^\\s]*)?';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private articleService: ArticleService) {
     this.articleForm = this.fb.group({
       name: ['', [Validators.required, NameArticleValidator]],
       price: [null, [Validators.required, Validators.min(0.1)]],
@@ -31,7 +32,18 @@ export class ArticleNewReactive {
   onSubmit() {
     this.submitted = true;
     if (this.articleForm.valid) {
-      console.log('Article creat:', this.articleForm.value);
+      const newArticle: Article = {
+        id: 0,
+        name: this.articleForm.value.name,
+        price: this.articleForm.value.price,
+        imageUrl: this.articleForm.value.imageUrl,
+        isOnSale: this.articleForm.value.isOnSale,
+        quantityInCart: 0
+      };
+      this.articleService.create(newArticle).subscribe(() => {
+        this.articleForm.reset({ isOnSale: false });
+        this.submitted = false;
+      });
     }
   }
 }
